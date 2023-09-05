@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Exchange</title>
+    <script>
+      var myHeaders = new Headers();
+myHeaders.append("apikey", "JMSDJEAZlnFv3ebQldkhwo1inJjGBFww");
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  headers: myHeaders
+};
+
+   fetch("https://api.apilayer.com/currency_data/change?start_date=2023-07-01&end_date=2023-01-01", requestOptions)
+  .then(response => response.json())
+  .then(result => {
+     console.log(result);
+     const rate = result.quotes.USDAED.change;
+     document.querySelector('body').innerHTML= `1 USD Change -USDAED- is equal to:   ${rate}`;
+    });
+    
+
+
+
+  
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>
